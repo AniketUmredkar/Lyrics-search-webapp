@@ -23,18 +23,18 @@ async function searchSong(inputValue) {
 
 function showData(dataObj) {
   mainEl.innerHTML = `<ul class="list">
-    ${dataObj.data
-      .map((value) => {
-        return `<li class="list-item">
-        <div class="song-container">
-          <strong class="artist-name">${value.artist.name}</strong>
-          <span class="song-name">&mdash;${value.title}</span>
-        </div>
-        <button artist-name="${value.artist.name}" song-name= "${value.title}" class="btn btn-lyrics">Lyrics</button>
-      </li>`;
-      })
-      .join(" ")}
-  </ul>`;
+                        ${dataObj.data
+                          .map((value) => {
+                            return `<li class="list-item">
+                                      <div class="song-container">
+                                        <strong class="artist-name">${value.artist.name}</strong>
+                                        <span class="song-name">&mdash;${value.title}</span>
+                                      </div>
+                                      <button artist-name="${value.artist.name}" song-name= "${value.title}" class="btn btn-lyrics">Lyrics</button>
+                                    </li>`;
+                          })
+                          .join(" ")}
+                      </ul>`;
   nextButtonEl.classList.remove("hide-btn");
 }
 
@@ -55,8 +55,8 @@ async function getLyrics(artist, songName) {
   const lyrics = dataObj.lyrics.replace(/\r\n|\r|\n/g, "<br/>");
 
   mainEl.innerHTML = `<h2 class="heading-secondary">
-    ${artist} &mdash; <span class="lyrics-song-name">${songName}</span>
-  </h2>
-  <p class="lyrics">${lyrics}</p>`;
+                        ${artist} &mdash; <span class="lyrics-song-name">${songName}</span>
+                      </h2>
+                      <p class="lyrics">${lyrics}</p>`;
   nextButtonEl.classList.add("hide-btn");
 }
