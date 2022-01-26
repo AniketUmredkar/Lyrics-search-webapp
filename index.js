@@ -52,10 +52,11 @@ async function getLyrics(artist, songName) {
   const response = await fetch(`${apiURL}/v1/${artist}/${songName}`);
   const dataObj = await response.json();
 
-  const lyrics = dataObj.lyrics.replace(/(\r\n|\r|\n)/g, "<br/>");
+  const lyrics = dataObj.lyrics.replace(/\r\n|\r|\n/g, "<br/>");
 
   mainEl.innerHTML = `<h2 class="heading-secondary">
     ${artist} &mdash; <span class="lyrics-song-name">${songName}</span>
   </h2>
   <p class="lyrics">${lyrics}</p>`;
+  nextButtonEl.classList.add("hide-btn");
 }
